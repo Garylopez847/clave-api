@@ -4,7 +4,9 @@ from pydantic import BaseModel
 app = FastAPI()
 
 # Clave actual que quieres validar (puedes cambiarla cuando quieras)
-CLAVE_ACTUAL = "MMC"
+import os
+
+CLAVE_ACTUAL = os.getenv("CLAVE_ACTUAL", "MMC")  # Valor por defecto "MMC"
 
 class ClaveRequest(BaseModel):
     clave: str
